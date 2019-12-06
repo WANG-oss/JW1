@@ -1,0 +1,288 @@
+{
+	"info": {
+		"_postman_id": "8e914aee-c2bd-4e92-9ec4-b7b1bd894793",
+		"name": "DepartmentController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST: 49.234.230.10:8080/JW/department.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "07d96b89-e7c7-4377-bca6-882c7d7249c0",
+						"exec": [
+							"//var jsonData = JSON.parse(responseBody);",
+							"//tests[\"增加成功？\"] = jsonData.message === \"增加成功\"",
+							"pm.test(\"增加成功？\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"增加成功\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"description\": \"工程管理\",\r\n        \"id\": 2,\r\n        \"no\": \"01\",\r\n        \"remarks\": \" \",\r\n        \"school\": {\r\n            \"description\": \"艺术\",\r\n            \"id\": 4,\r\n            \"no\": \"04\",\r\n            \"remarks\": \"\"\r\n        }\r\n        \r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/department.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"department.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET(id): 49.234.230.10:8080/JW/department.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf6dedfc-2cb0-4d0a-a085-56b13bdfca66",
+						"exec": [
+							"//tests[\"Body matcher string 工程管理\"] = responseBody.has(\"工程管理\");",
+							"pm.test(\"Body matches string 工程管理\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"工程管理\");",
+							"});",
+							""
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\":\"博士\",\"id\":7,\"no\":3,\"remarks\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/department.ctl?id=12",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"department.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE: 49.234.230.10:8080/JW/department.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "02098b94-a0c7-46f2-bfc5-47fd5e3432ed",
+						"exec": [
+							"//var jsonData = JSON.parse(responseBody);",
+							"//tests[\"删除成功？\"] = jsonData.message === \"删除成功\"",
+							"pm.test(\"删除成功？\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"删除成功\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\":\"工程管理\",\"id\":7,\"no\":3,\"remarks\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/department.ctl?id=17",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"department.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "17"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET: 49.234.230.10:8080/JW/department.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "55ef70f2-9f35-4d9f-8f62-42ad0a551323",
+						"exec": [
+							"//tests[\"Body matcher string 管理工程\"] = responseBody.has(\"管理工程\");",
+							"//tests[\"Body matcher string 工业工程\"] = responseBody.has(\"工业工程\");",
+							"//tests[\"Body matcher string 工程管理\"] = responseBody.has(\"工程管理\");",
+							"pm.test(\"管理工程\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"管理工程\");",
+							"});",
+							"pm.test(\"工业工程\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"工业工程\");",
+							"});",
+							"pm.test(\"工程管理\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"工程管理\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\": \"id为6的系\",\"id\":6,\"no\": \"09\",\"remarks\": \"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/department.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"department.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT: 49.234.230.10:8080/JW/department.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "76201140-8984-49a7-96b8-3736cdfa8395",
+						"exec": [
+							"//var jsonData = JSON.parse(responseBody);",
+							"//tests[\"update response\"] = jsonData.message === \"修改成功\"",
+							"pm.test(\"修改成功\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"修改成功\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"description\": \"修改的系\",\r\n        \"id\": 17,\r\n        \"no\": \" \",\r\n        \"remarks\": \"\",\r\n        \"school\": {\r\n            \"description\": \"土木工程\",\r\n            \"id\": 1,\r\n            \"no\": \"01\",\r\n            \"remarks\": \"\"\r\n        }\r\n    }\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/department.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"department.ctl"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}

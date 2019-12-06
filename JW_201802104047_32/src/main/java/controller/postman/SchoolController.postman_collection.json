@@ -1,0 +1,271 @@
+{
+	"info": {
+		"_postman_id": "b185b981-3afa-4bee-9ca6-c462f3b49ab1",
+		"name": "SchoolController",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET: 49.234.230.10:8080/JW/school/list.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "e00e5f83-3539-45cf-95aa-6d6709e56888",
+						"exec": [
+							"pm.test(\"管理学院\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"管理学院\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"description\":\"计算机学院\",\"id\":9,\"no\":\"07\",\"remarks\":\"\"}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/school.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"school.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE: 49.234.230.10:8080/JW/school/list.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "06e0a3e4-c3ca-46ee-a1cc-9da971d6f422",
+						"exec": [
+							"pm.test(\"删除成功？\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"删除成功\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/school.ctl?id=12",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"school.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "12"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT: 49.234.230.10:8080/JW/school/list.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "c4308bfb-cba5-4894-861d-4bd847e19dc5",
+						"exec": [
+							"pm.test(\"修改成功？\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"修改成功\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n    {\r\n        \"description\": \"外国语学院\",\r\n        \"id\": 4,\r\n        \"no\": \"04\",\r\n        \"remarks\": \"\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/school.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"school.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST: 49.234.230.10:8080/JW/school/list.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "4748bbbe-e43c-4244-9cc8-6d599cdd39c1",
+						"exec": [
+							"pm.test(\"增加成功？\", function () {",
+							"    var jsonData = pm.response.json();",
+							"    pm.expect(jsonData.message).to.eql(\"增加成功\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n   {\r\n        \"description\": \"机械学院\",\r\n        \"no\": \"06\",\r\n        \"remarks\": \"\"\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/school.ctl",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"school.ctl"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET(id): 49.234.230.10:8080/JW/school/list.ctl",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "bf7d821a-ed00-4ac9-92fa-21cfe92efc9c",
+						"exec": [
+							"pm.test(\"Body matches string 信电学院\", function () {",
+							"    pm.expect(pm.response.text()).to.include(\"信电学院\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/school.ctl?id=5",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"school.ctl"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": "5"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
